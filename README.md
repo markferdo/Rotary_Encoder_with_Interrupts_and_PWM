@@ -45,5 +45,23 @@
         gpio_set_function(led_pin, GPIO_FUNC_PWM);
         pwm_set_enabled(led_pin,true);
     }
+## Brightness handling with the encoder turning
 
+    if (event.direction == rotate_clockwise) {
 
+        if (duty_cycle >= DUTY_CYCLE_MAX) {
+            duty_cycle = DUTY_CYCLE_MAX;
+        }
+        else {
+            duty_cycle += DUTY_CYCLE_STEP;
+        }
+        led_brightness(duty_cycle);
+    } else if (event.direction == rotate_counterclockwise) {
+        if(duty_cycle > DUTY_CYCLE_LOW) {
+            duty_cycle -= DUTY_CYCLE_STEP;
+            if(duty_cycle  <= DUTY_CYCLE_LOW + DUTY_CYCLE_STEP){ // avoid the underflow
+                duty_cycle = DUTY_CYCLE_LOW;
+            }
+        }
+        led_brightness(duty_cycle);
+    }
