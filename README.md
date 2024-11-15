@@ -1,7 +1,7 @@
 # Brightness Control with Pulse Width Modulation
 
 #### Model: RP2040 
-### Language: C
+#### Language: C
 
 ## Interrupt
 
