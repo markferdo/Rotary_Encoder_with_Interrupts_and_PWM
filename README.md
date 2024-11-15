@@ -8,6 +8,7 @@
 
 #### Counter-clockwise -> B is high when A is on the rising edge.
 
+
     void rotary_rotation_isr(uint gpio, uint32_t event_mask) {
         bool rotary_B_state = gpio_get(ROTARY_B);
         rotary_event_t event; // object of the struct. Add data to queue
