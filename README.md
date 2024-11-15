@@ -8,7 +8,7 @@
 
 #### Counter-clockwise -> B is high when A is on the rising edge.
 
-
+#### Here is the Interrupt function
 
     void rotary_rotation_isr(uint gpio, uint32_t event_mask) {
         bool rotary_B_state = gpio_get(ROTARY_B);
@@ -22,6 +22,8 @@
         queue_try_add(&rotary_queue,&event);
     }
 
-#### In main we can enable the isr 
+#### In main we can enable the ISR
 
     gpio_set_irq_enabled_with_callback(ROTARY_A, GPIO_IRQ_EDGE_RISE, true, &rotary_rotation_isr);
+
+
