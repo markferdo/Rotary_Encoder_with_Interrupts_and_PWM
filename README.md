@@ -2,7 +2,9 @@
 
 ## Interrupt
 
-#### The rotary encoder has two outputs, A and B. We choose A as the clock and check the state of B. An Interrupt is triggered when A goes to the rising edge. Then we monitor the state of the B to detect the direction. Once we identify the direction we can increase and decrease the brightness using rotary turning and PWM.
+#### The rotary encoder has two outputs, A and B. We choose A as the clock and check the state of B. 
+#### An Interrupt is triggered when A goes to the rising edge. Then we monitor the state of the B to detect the direction. 
+#### Once we identify the direction we can increase and decrease the brightness using rotary turning and PWM.
 
 #### Clockwise -> B is low when A is on the rising edge.
 
