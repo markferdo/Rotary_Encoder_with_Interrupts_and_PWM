@@ -28,4 +28,22 @@
 
     gpio_set_irq_enabled_with_callback(ROTARY_A, GPIO_IRQ_EDGE_RISE, true, &rotary_rotation_isr);
 
+## PWM
+
+#### With the help of the duty cycle we can change the brightness 0 - 100 %. 
+#### Here is the PWM function
+
+    void assign_pwm(const uint led_pin) {
+        const uint slice_num = pwm_gpio_to_slice_num(led_pin);
+        const uint channel = pwm_gpio_to_channel(led_pin);
+        pwm_set_enabled(led_pin,false);
+        pwm_config config = pwm_get_default_config();
+        pwm_config_set_clkdiv(&config,125);
+        pwm_config_set_wrap(&config, 999);
+        pwm_init(slice_num, &config,true);
+        pwm_set_chan_level(slice_num, channel, DUTY_CYCLE_LOW);
+        gpio_set_function(led_pin, GPIO_FUNC_PWM);
+        pwm_set_enabled(led_pin,true);
+    }
+
 
