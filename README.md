@@ -22,4 +22,6 @@
         queue_try_add(&rotary_queue,&event);
     }
 
+#### In main we can enable the isr 
 
+    gpio_set_irq_enabled_with_callback(ROTARY_A, GPIO_IRQ_EDGE_RISE, true, &rotary_rotation_isr);
