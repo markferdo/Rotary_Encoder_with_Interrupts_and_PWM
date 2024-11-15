@@ -17,10 +17,10 @@
 
     void rotary_rotation_isr(uint gpio, uint32_t event_mask) {
         bool rotary_B_state = gpio_get(ROTARY_B);
-        rotary_event_t event; // object of the struct. Add data to queue
+        rotary_event_t event; 
 
         if(rotary_B_state) {
-            event.direction = rotate_counterclockwise; //accessing struct element and passing to enum
+            event.direction = rotate_counterclockwise;
         }else {
             event.direction = rotate_clockwise;
         }
@@ -62,7 +62,7 @@
     } else if (event.direction == rotate_counterclockwise) {
         if(duty_cycle > DUTY_CYCLE_LOW) {
             duty_cycle -= DUTY_CYCLE_STEP;
-            if(duty_cycle  <= DUTY_CYCLE_LOW + DUTY_CYCLE_STEP){ // avoid the underflow
+            if(duty_cycle  <= DUTY_CYCLE_LOW + DUTY_CYCLE_STEP){
                 duty_cycle = DUTY_CYCLE_LOW;
             }
         }
