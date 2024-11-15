@@ -1,5 +1,8 @@
 # Brightness Control with Pulse Width Modulation
 
+#### Model: RP2040 
+### Language: C
+
 ## Interrupt
 
 #### The rotary encoder has two outputs, A and B. We choose A as the clock and check the state of B. 
